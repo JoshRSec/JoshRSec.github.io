@@ -1,0 +1,205 @@
+const app = document.querySelector("#app");
+const delay = ms => new Promise(res => setTimeout(res, ms));
+    
+app.addEventListener("keypress", async function(event){
+  if(event.key === "Enter"){
+    await delay(150);
+    getInputValue();
+    removeInput();
+    await delay(150);
+    new_line();
+  }
+});
+
+app.addEventListener("click", function(event){
+  const input = document.querySelector("input");
+  input.focus();
+})
+
+
+async function open_terminal(){
+  createTypewriterText("Welcome", "welcome");
+  await delay(700);
+  createTypewriterText(getRandomMOTD(), "motd");
+  await delay(700);
+  
+  await delay(1500);
+  createText("You can run several commands:");
+  createCode("whoami", "Who am i and what do i do.");
+  createCode("all", "See all commands.");
+  createCode("social -a", "All my social networks.");
+  await delay(500);
+  new_line();
+}
+
+
+function new_line(){
+  const div = document.createElement("div");
+  div.setAttribute("class", "type")
+  const span1 = document.createElement("span");
+  const span2 = document.createElement("span");
+  div.setAttribute("class", "path")
+  div.textContent = "┏━━(";
+  span1.textContent = "Joshua㉿Robbins";
+  span2.textContent = ")-[~]";
+  span2.setAttribute("class", "white")
+  div.appendChild(span1);
+  div.appendChild(span2);
+  const lineBreak = document.createElement("br");
+  div.appendChild(lineBreak);
+  const span3 = document.createElement("span");
+  span3.textContent = "┗━$ ";
+  span3.setAttribute("class", "white")
+  div.appendChild(span3);
+  const input = document.createElement("input");
+  div.appendChild(input);
+  app.appendChild(div);
+  input.focus();
+}
+
+function removeInput(){
+  const div = document.querySelector(".path");
+  app.removeChild(div);
+}
+
+async function getInputValue(){
+  const dirtyValue = document.querySelector("input").value;
+  let value;
+  const regexp = /^[a-zA-Z0-9-_ ]+$/;
+  if (dirtyValue.search(regexp) === -1){ 
+    value = "XSS";
+  }
+  else{ 
+    value = dirtyValue;
+  }
+
+  if(value === "all"){
+    trueValue(value);
+    createCode("projects", "My github page with my projects.");
+    createCode("whoami", "What I do and who I am.");
+    createCode("social -a", "All my social networks.");
+    createCode("clear", "Clean the terminal.");
+  }
+  else if(value === "projects"){
+    trueValue(value);
+    createText("<a href='https://github.com/JoshRSec' target='_blank'><i class='fab fa-github white'></i> github.com/JoshRSec</a>")
+  }
+  else if(value === "whoami"){
+    trueValue(value);
+    createText("My name is Joshua Robbins, I currently work as an Security Analyst.")
+    createText("I am passonate about CyberSec, keeping up with new trends and completing CTFs.")
+    createText("Having graduated with a degree in Computer Science, I also have experience as an infrastructure engineer.")
+  }
+  else if(value === "social -a"){
+    trueValue(value);
+    createText("<a href='https://github.com/JoshRSec' target='_blank'><i class='fab fa-github white'></i> github.com/JoshRSec</a>")
+    createText("<a href='https://www.linkedin.com/in/joshua-robbins-335152123/' target='_blank'><i class='fab fa-linkedin white'></i> linkedin.com/in/joshua-robbins-335152123/</a>")
+    createText("<a href='https://twitter.com/Piv0tSec' target='_blank'><i class='fab fa-twitter white'></i> twitter.com/Piv0tSec/</a>")
+    createText("<a href='https://tryhackme.com/p/piv0t' target='_blank'><i class='fa fa-user-secret white'></i> tryhackme.com/p/piv0t/</a>")
+  }
+  else if(value === "social"){
+    falseValue(value);
+    createText(`Command '${value}' not found, did you meant social -a ?`)
+  }
+  else if(value === "XSS"){
+    falseValue(dirtyValue);
+    createText(`Are you really trying XSS? I'm not mad, I am disappointed.`)
+  }
+  else if(value === "clear"){
+    document.querySelectorAll("p").forEach(e => e.parentNode.removeChild(e));
+    document.querySelectorAll("section").forEach(e => e.parentNode.removeChild(e));
+  }
+  else{
+    falseValue(value);
+    createText(`${value}: command not found`)
+  }
+}
+
+function trueValue(value){
+  const div = document.createElement("section");
+  div.setAttribute("class", "type2")
+  const span1 = document.createElement("span");
+  const span2 = document.createElement("span");
+  div.setAttribute("class", "path2")
+  div.textContent = "┏━━(";
+  span1.textContent = "Joshua㉿Robbins";
+  span2.textContent = ")-[~]";
+  span2.setAttribute("class", "white")
+  div.appendChild(span1);
+  div.appendChild(span2);
+  const lineBreak = document.createElement("br");
+  div.appendChild(lineBreak);
+  const span3 = document.createElement("span");
+  span3.setAttribute("class", "white")
+  span3.textContent = "┗━$ ";
+  div.appendChild(span3);
+  const message = document.createElement("h2");
+  message.setAttribute("class", "success")
+  message.textContent = `${value}`;
+  div.appendChild(message);
+  app.appendChild(div);
+}
+
+function falseValue(value){
+  const div = document.createElement("section");
+  div.setAttribute("class", "type2")
+  const span1 = document.createElement("span");
+  const span2 = document.createElement("span");
+  div.setAttribute("class", "path2")
+  div.textContent = "┏━━(";
+  span1.textContent = "Joshua㉿Robbins";
+  span2.textContent = ")-[~]";
+  span2.setAttribute("class", "white")
+  div.appendChild(span1);
+  div.appendChild(span2);
+  const lineBreak = document.createElement("br");
+  div.appendChild(lineBreak);
+  const span3 = document.createElement("span");
+  span3.setAttribute("class", "white")
+  span3.textContent = "┗━$ ";
+  div.appendChild(span3);
+  const message = document.createElement("h2");
+  message.setAttribute("class", "error")
+  message.textContent = `${value}`;
+  div.appendChild(message);
+  app.appendChild(div);
+}
+
+function createText(text){
+  const p = document.createElement("p");
+  p.innerHTML = text;
+  app.appendChild(p);
+}
+
+function createTypewriterText(text, id){
+  const p = document.createElement("p");
+  p.setAttribute("id", id)
+  p.innerHTML = "";
+  app.appendChild(p);
+  typeWriter(text, id);
+}
+
+function typeWriter(txt,id,i=0) {
+  let count = i;
+  if (count < txt.length) {
+    document.getElementById(id).innerHTML += txt.charAt(i);
+    count++;
+    setTimeout(() => typeWriter(txt,id,count), 50);
+  }
+}
+
+function createCode(code, text){
+  const p = document.createElement("p");
+  p.setAttribute("class", "code");
+  p.innerHTML =
+ `${code} <br/><span class='text'> ${text} </span>`;
+  app.appendChild(p);
+}
+
+function getRandomMOTD(){
+  const messages = ["Starting the server...","Entering the matrix...","Connecting to TOR exit node...","Thinking of something smart..."];
+  const random = Math.floor(Math.random() * messages.length);
+  return messages[random];
+}
+
+open_terminal();

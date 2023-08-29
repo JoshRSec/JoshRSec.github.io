@@ -1,0 +1,237 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+::-webkit-scrollbar-track
+{
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	
+	background-color: #555;
+}
+
+::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #555;
+}
+
+::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: rgb(129, 129, 129);
+}
+.white{
+  color:rgb(238, 238, 238);
+}
+.blue{
+  color:#9CEAF3;
+}
+a{
+  text-decoration: none;
+  color: rgb(238, 238, 238);
+}
+body{
+  background-image: url("../Images/kali-cubism-16x9.jpg");
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+
+  height: 100vh;
+  font-family: 'Fira Code', monospace;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+.container{
+  display:flex;
+  flex-direction: column;
+  width:100%;
+  max-width:800px;
+  height:500px;
+  overflow: hidden;
+  border-radius: 6px;
+  border: 1px solid gray;
+  margin:20px;
+  cursor: text;
+}
+.menu{
+  display:flex;
+  align-items: center;
+
+  position: relative;
+  text-align: center;
+  flex-direction: row;
+  width: 100%;
+  height: 24px;
+  background-color: #21232C;
+  padding: 0 8px;
+  cursor:default;
+}
+.menu .button{
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  margin-right:8px;
+  cursor:pointer;
+}
+.menu .icon{
+  width:15px;
+  height:15px;
+  margin-right:8px;
+  cursor:pointer;
+}
+.exit{
+  background-color:#2269E2;
+}
+.maximize{
+  background-color:#313541;
+  border: 1px solid #FFFFFF;
+}
+.minimize{
+  background-color:#313541;
+  border: 1px solid #FFFFFF;
+}
+.terminal-icon{
+  background-image: url("../Images/terminal-icon.png"); 
+  background-position: center; 
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+div.title{
+  flex:1;
+  text-align:center;
+}
+span.text{
+  margin-left:16px;
+  color:white;
+}
+div.path{
+  color:#FFFFFF;
+  line-height: 100%
+}
+div.path span{
+  color:#2579F2;
+}
+div.path span.white{
+  color:#FFFFFF;
+}
+div.path span.textinput{
+  color:#FFFFFF;
+  padding-right:8px;
+  font-style: normal;
+}
+section.path2{
+  color:#FFFFFF;
+  line-height: 116%
+}
+section.path2 span{
+  color:#2579F2;
+}
+section.path2 span.white{
+  color:#FFFFFF;
+}
+section.path2 span.textinput{
+  color:#FFFFFF;
+  padding-right:8px;
+  font-style: normal;
+}
+.menu h1{
+  font-size:13px;
+  color:#9c9c9c;
+
+}
+.buttons-flex{
+  position: absolute;
+  right: 0;
+  display:flex;
+  flex-direction: row;
+}
+.icon-flex{
+  position: absolute;
+  display:flex;
+  flex-direction: row;
+}
+@media (max-width:500px){
+  .buttons-flex{
+    position: unset;
+    display:flex;
+    flex-direction: row;
+  }
+}
+@media (max-width:330px){
+  .menu h1{
+    display:none;
+  }
+}
+#app{
+  display:flex;
+  flex-direction: column;
+  background-color:#21232C;
+  width:100%;
+  height:100%;
+  padding:8px;
+  overflow: auto;
+}
+p{
+  font-size:16px;
+  color:rgb(238, 238, 238);
+  padding:8px 0;
+}
+h2{
+  font-size:16px;
+  color:rgb(238, 238, 238);
+  display: inline-block;
+}
+p.code{
+  color:#66C2CD;
+  margin-left:8px;
+}
+
+.success{
+  color:#5AD786;
+}
+.error{
+  color:#F78F85;
+}
+p.response{
+  color:rgb(238, 238, 238);
+}
+
+input{
+  border:none;
+  background-color: unset;
+  color:rgb(238, 238, 238);
+  width:95%;
+  font-size:16px;
+  font-family: 'Fira Code', monospace;
+}
+input:focus{
+  border:none;
+  outline: none;
+  box-shadow: none;
+  background-color: unset;
+  
+}
+.type{
+  display:flex;
+  align-items: center;
+  padding:8px 0;
+}
+.type2{
+  display:flex;
+  align-items: center;
+  padding:8px 0;
+}
+.textinput{
+  color:#FFFFFF;
+  padding-right:8px;
+  font-style: normal;
+}
+
+.textinput.error{
+  color:#F78F85;
+}
