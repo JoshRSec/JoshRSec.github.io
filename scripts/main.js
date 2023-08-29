@@ -70,35 +70,35 @@ async function getInputValue(){
     value = "XSS";
   }
   else{ 
-    value = dirtyValue;
+    value = dirtyValue.toLowerCase();
   }
 
   if(value === "all"){
-    trueValue(value);
+    trueValue(dirtyValue);
     createCode("projects", "My github page with my projects.");
     createCode("whoami", "What I do and who I am.");
     createCode("social -a", "All my social networks.");
     createCode("clear", "Clean the terminal.");
   }
   else if(value === "projects"){
-    trueValue(value);
+    trueValue(dirtyValue);
     createText("<a href='https://github.com/JoshRSec' target='_blank'><i class='fab fa-github white'></i> github.com/JoshRSec</a>")
   }
   else if(value === "whoami"){
-    trueValue(value);
+    trueValue(dirtyValue);
     createText("My name is Joshua Robbins, I currently work as an Security Analyst.")
     createText("I am passonate about CyberSec, keeping up with new trends and completing CTFs.")
     createText("Having graduated with a degree in Computer Science, I also have experience as an infrastructure engineer.")
   }
   else if(value === "social -a"){
-    trueValue(value);
+    trueValue(dirtyValue);
     createText("<a href='https://github.com/JoshRSec' target='_blank'><i class='fab fa-github white'></i> github.com/JoshRSec</a>")
     createText("<a href='https://www.linkedin.com/in/joshua-robbins-335152123/' target='_blank'><i class='fab fa-linkedin white'></i> linkedin.com/in/joshua-robbins-335152123/</a>")
     createText("<a href='https://twitter.com/Piv0tSec' target='_blank'><i class='fab fa-twitter white'></i> twitter.com/Piv0tSec/</a>")
     createText("<a href='https://tryhackme.com/p/piv0t' target='_blank'><i class='fa fa-user-secret white'></i> tryhackme.com/p/piv0t/</a>")
   }
   else if(value === "social"){
-    falseValue(value);
+    falseValue(dirtyValue);
     createText(`Command '${value}' not found, did you meant social -a ?`)
   }
   else if(value === "XSS"){
@@ -110,8 +110,8 @@ async function getInputValue(){
     document.querySelectorAll("section").forEach(e => e.parentNode.removeChild(e));
   }
   else{
-    falseValue(value);
-    createText(`${value}: command not found`)
+    falseValue(dirtyValue);
+    createText(`${dirtyValue}: command not found`)
   }
 }
 
