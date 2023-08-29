@@ -35,7 +35,7 @@ a{
   color: rgb(238, 238, 238);
 }
 body{
-  background-image: url("../Images/kali-cubism-16x9.jpg");
+  background-image: url("../images/kali-cubism-16x9.jpg");
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover; /* Resize the background image to cover the entire container */
@@ -96,7 +96,7 @@ body{
   border: 1px solid #FFFFFF;
 }
 .terminal-icon{
-  background-image: url("../Images/terminal-icon.png"); 
+  background-image: url("../images/terminal-icon.png"); 
   background-position: center; 
   background-size: cover;
   background-repeat: no-repeat;
