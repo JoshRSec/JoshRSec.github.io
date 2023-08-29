@@ -86,9 +86,9 @@ async function getInputValue(){
   }
   else if(value === "whoami"){
     trueValue(dirtyValue);
-    createText("My name is Joshua Robbins, I currently work as an Security Analyst.")
-    createText("I am passonate about CyberSec, keeping up with new trends and completing CTFs.")
-    createText("Having graduated with a degree in Computer Science, I also have experience as an infrastructure engineer.")
+    createText("My name is Joshua Robbins, I currently work as a Security Analyst.")
+    createText("I am passionate about CyberSec, keeping up with new trends and completing CTFs.")
+    createText("Having graduated with a BSc in Computer Science, I also have experience as an infrastructure engineer.")
   }
   else if(value === "social -a"){
     trueValue(dirtyValue);
