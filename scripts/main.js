@@ -121,22 +121,24 @@ async function getInputValue(){
 
 function trueValue(value){
   const div = document.createElement("section");
-  div.setAttribute("class", "type2")
+  div.setAttribute("class", "path-history")
   const span1 = document.createElement("span");
   const span2 = document.createElement("span");
-  div.setAttribute("class", "path2")
-  div.textContent = "┏━━(";
-  span1.textContent = "Joshua㉿Robbins";
-  span2.textContent = ")-[~]";
-  span2.setAttribute("class", "white")
+  const span3 = document.createElement("span");
+  span1.textContent = "┏━━(";
+  span1.setAttribute("class", "white")
+  span2.textContent = "Joshua㉿Robbins";
+  span3.textContent = ")-[~]";
+  span3.setAttribute("class", "white")
   div.appendChild(span1);
   div.appendChild(span2);
+  div.appendChild(span3);
   const lineBreak = document.createElement("br");
   div.appendChild(lineBreak);
-  const span3 = document.createElement("span");
-  span3.setAttribute("class", "white")
-  span3.textContent = "┗━$ ";
-  div.appendChild(span3);
+  const span4 = document.createElement("span");
+  span4.textContent = "┗━$ ";
+  span4.setAttribute("class", "white")
+  div.appendChild(span4);
   const message = document.createElement("h2");
   message.setAttribute("class", "success")
   message.textContent = `${value}`;
@@ -146,22 +148,24 @@ function trueValue(value){
 
 function falseValue(value){
   const div = document.createElement("section");
-  div.setAttribute("class", "type2")
+  div.setAttribute("class", "path-history")
   const span1 = document.createElement("span");
   const span2 = document.createElement("span");
-  div.setAttribute("class", "path2")
-  div.textContent = "┏━━(";
-  span1.textContent = "Joshua㉿Robbins";
-  span2.textContent = ")-[~]";
-  span2.setAttribute("class", "white")
+  const span3 = document.createElement("span");
+  span1.textContent = "┏━━(";
+  span1.setAttribute("class", "white")
+  span2.textContent = "Joshua㉿Robbins";
+  span3.textContent = ")-[~]";
+  span3.setAttribute("class", "white")
   div.appendChild(span1);
   div.appendChild(span2);
+  div.appendChild(span3);
   const lineBreak = document.createElement("br");
   div.appendChild(lineBreak);
-  const span3 = document.createElement("span");
-  span3.setAttribute("class", "white")
-  span3.textContent = "┗━$ ";
-  div.appendChild(span3);
+  const span4 = document.createElement("span");
+  span4.textContent = "┗━$ ";
+  span4.setAttribute("class", "white")
+  div.appendChild(span4);
   const message = document.createElement("h2");
   message.setAttribute("class", "error")
   message.textContent = `${value}`;
