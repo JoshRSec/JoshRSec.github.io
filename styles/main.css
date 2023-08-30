@@ -82,25 +82,24 @@ body{
 .menu .icon{
   width:15px;
   height:15px;
-  margin-right:8px;
   cursor:pointer;
 }
-.exit{
-  background-color:#2269E2;
-}
-.maximize{
-  background-color:#313541;
-  border: 1px solid #FFFFFF;
-}
-.minimize{
-  background-color:#313541;
-  border: 1px solid #FFFFFF;
-}
-.terminal-icon{
+.menu .terminal-icon{
   background-image: url("../images/terminal-icon.png"); 
   background-position: center; 
   background-size: cover;
   background-repeat: no-repeat;
+}
+.menu .exit{
+  background-color:#2269E2;
+}
+.menu .maximize{
+  background-color:#313541;
+  border: 1px solid #FFFFFF;
+}
+.menu .minimize{
+  background-color:#313541;
+  border: 1px solid #FFFFFF;
 }
 div.title{
   flex:1;
@@ -120,25 +119,15 @@ div.path span{
 div.path span.white{
   color:#FFFFFF;
 }
-div.path span.textinput{
-  color:#FFFFFF;
-  padding-right:8px;
-  font-style: normal;
-}
-section.path2{
+section.path-history{
   color:#FFFFFF;
   line-height: 116%
 }
-section.path2 span{
+section.path-history span{
   color:#2579F2;
 }
-section.path2 span.white{
+section.path-history span.white{
   color:#FFFFFF;
-}
-section.path2 span.textinput{
-  color:#FFFFFF;
-  padding-right:8px;
-  font-style: normal;
 }
 .menu h1{
   font-size:13px;
@@ -155,18 +144,6 @@ section.path2 span.textinput{
   position: absolute;
   display:flex;
   flex-direction: row;
-}
-@media (max-width:500px){
-  .buttons-flex{
-    position: unset;
-    display:flex;
-    flex-direction: row;
-  }
-}
-@media (max-width:330px){
-  .menu h1{
-    display:none;
-  }
 }
 #app{
   display:flex;
@@ -185,28 +162,27 @@ p{
 h2{
   font-size:16px;
   color:rgb(238, 238, 238);
-  display: inline-block;
+  display: inline;
+}
+h2.success{
+  color:#5AD786;
+}
+h2.error{
+  color:#F78F85;
 }
 p.code{
   color:#66C2CD;
   margin-left:8px;
 }
 
-.success{
-  color:#5AD786;
-}
-.error{
-  color:#F78F85;
-}
 p.response{
   color:rgb(238, 238, 238);
 }
-
 input{
   border:none;
   background-color: unset;
   color:rgb(238, 238, 238);
-  width:95%;
+  width: 80%;
   font-size:16px;
   font-family: 'Fira Code', monospace;
 }
@@ -216,23 +192,4 @@ input:focus{
   box-shadow: none;
   background-color: unset;
   
-}
-.type{
-  display:flex;
-  align-items: center;
-  padding:8px 0;
-}
-.type2{
-  display:flex;
-  align-items: center;
-  padding:8px 0;
-}
-.textinput{
-  color:#FFFFFF;
-  padding-right:8px;
-  font-style: normal;
-}
-
-.textinput.error{
-  color:#F78F85;
 }
