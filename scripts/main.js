@@ -55,6 +55,7 @@ function new_line(){
   span4.setAttribute("class", "white")
   div.appendChild(span4);
   const input = document.createElement("input");
+  input.setAttribute("maxlength", "30")
   div.appendChild(input);
   app.appendChild(div);
   input.focus();
@@ -78,13 +79,14 @@ async function getInputValue(){
 
   if(value === "all"){
     trueValue(dirtyValue);
-    createCode("projects", "My github page with my projects.");
+    createCode("projects", "Where to find my projects.");
     createCode("whoami", "What I do and who I am.");
     createCode("social -a", "All my social networks.");
     createCode("clear", "Clean the terminal.");
   }
   else if(value === "projects"){
     trueValue(dirtyValue);
+    createText("<a href='https://blog.joshuarobbins.tech' target='_blank'><i class='fab fa-wordpress white'></i> blog.joshuarobbins.tech</a>")
     createText("<a href='https://github.com/JoshRSec' target='_blank'><i class='fab fa-github white'></i> github.com/JoshRSec</a>")
   }
   else if(value === "whoami"){
@@ -95,7 +97,6 @@ async function getInputValue(){
   }
   else if(value === "social -a"){
     trueValue(dirtyValue);
-    createText("<a href='https://github.com/JoshRSec' target='_blank'><i class='fab fa-github white'></i> github.com/JoshRSec</a>")
     createText("<a href='https://www.linkedin.com/in/joshua-robbins-335152123/' target='_blank'><i class='fab fa-linkedin white'></i> linkedin.com/in/joshua-robbins-335152123/</a>")
     createText("<a href='https://twitter.com/Piv0tSec' target='_blank'><i class='fab fa-twitter white'></i> twitter.com/Piv0tSec/</a>")
     createText("<a href='https://tryhackme.com/p/piv0t' target='_blank'><i class='fa fa-user-secret white'></i> tryhackme.com/p/piv0t/</a>")
