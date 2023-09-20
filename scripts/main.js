@@ -107,7 +107,7 @@ async function getInputValue(){
     createText(`Command '${value}' not found, did you meant social -a ?`)
   }
   else if(value === "certs"){
-    falseValue(dirtyValue);
+    trueValue(dirtyValue);
     createText("<a href='https://www.credly.com/users/joshua-robbins.34758ae2/badges' target='_blank'><i class='fa fa-certificate white'></i> credly.com/users/joshua-robbins.34758ae2/badges/</a>")
   }
   else if(value === "XSS"){
