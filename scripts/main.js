@@ -82,6 +82,7 @@ async function getInputValue(){
     createCode("projects", "Where to find my projects.");
     createCode("whoami", "What I do and who I am.");
     createCode("social -a", "All my social networks.");
+    createCode("certs", "Certifications I hold.");
     createCode("clear", "Clean the terminal.");
   }
   else if(value === "projects"){
@@ -104,6 +105,10 @@ async function getInputValue(){
   else if(value === "social"){
     falseValue(dirtyValue);
     createText(`Command '${value}' not found, did you meant social -a ?`)
+  }
+  else if(value === "certs"){
+    falseValue(dirtyValue);
+    createText("<a href='https://www.credly.com/users/joshua-robbins.34758ae2/badges' target='_blank'><i class='fa fa-certificate white'></i> credly.com/users/joshua-robbins.34758ae2/badges/</a>")
   }
   else if(value === "XSS"){
     falseValue(dirtyValue);
