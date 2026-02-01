@@ -191,3 +191,58 @@ input:focus{
   background-color: unset;
   
 }
+
+.blog-button-container {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.blog-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-family: 'Fira Code', monospace;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #1e293b; /* slate-800 */
+  border: 2px solid #38bdf8; /* sky-400 */
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.blog-button:hover {
+  background-color: #0ea5e9;
+  border-color: #0ea5e9;
+  box-shadow: 0 0 8px #0ea5e9;
+}
+
+.blog-button-container {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.blog-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-family: 'Fira Code', monospace;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #1e293b;
+  border: 2px solid #38bdf8;
+  border-radius: 6px;
+  text-decoration: none;
+  box-shadow: 0 0 0 transparent;
+  transition: box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+  position: relative;
+}
+
+.cursor {
+  animation: blink 1s steps(2, start) infinite;
+  margin-left: 4px;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
