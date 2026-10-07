@@ -4,7 +4,7 @@
 
 A fully interactive, terminal‑inspired personal homepage built with vanilla JavaScript, HTML, and CSS. Visitors can explore your projects, socials, certifications, and bio through a simulated command‑line interface.
 
-This site is intentionally lightweight, fast, and playful — designed to feel like booting into a hacker console.
+This site is intentionally lightweight, fast, and playful — designed to feel like booting into a kali console.
 
 ## ✨ Features
 
@@ -20,8 +20,22 @@ Users can type commands directly into the terminal:
 | `certs` | Shows your Credly certifications |
 | `all` | Lists all available commands |
 | `clear` | Clears the terminal output |
+| `ls [-la] [dir]` | List files in the fake filesystem |
+| `cd <dir>` | Change directory (the prompt path updates) |
+| `cat <file>` | Read a file, e.g. `cat about.txt` |
+| `pwd` / `tree` | Show where you are / the whole tree |
+| `history` | Previously run commands |
+| `neofetch` | System info with the Kali dragon |
 
-Invalid commands return styled error messages, and attempts at XSS get a cheeky response.
+Invalid commands return zsh-style errors (`zsh: command not found: foo`), and attempts at XSS get a cheeky response. There are also a few hidden commands and flags to find...
+
+### **Real Shell Behaviour**
+
+-   **↑ / ↓** browse command history
+-   **Tab** autocompletes commands and file paths (multiple matches are listed)
+-   **Ctrl+L** clears the screen, **Ctrl+C** cancels the current line
+-   Live zsh-syntax-highlighting: the command turns green when valid, red when not
+-   Blinking block cursor, plus working minimise / maximise / close window buttons
 
 ### **Boot‑Up Typewriter Sequence**
 
@@ -42,22 +56,11 @@ Each command line is generated with your custom prompt:
 
 Code
 
-    ┏━━(Joshua㉿Robbins)-[~]
-    ┗━$ 
+    ┌──(Joshua㉿Robbins)-[~]
+    └─$ 
     
 
-New prompts appear automatically after each command is processed.
-
-### **Security‑Aware Input Handling**
-
-User input is validated with a regex:
-
--   Only alphanumeric characters, hyphens, underscores, and spaces allowed
-    
--   Anything else is treated as `"XSS"` and triggers a playful warning
-    
-
-This keeps the terminal fun without exposing the DOM to unsafe input.
+This matches Kali's default zsh theme, including the colours. The path updates as you `cd` around, and the prompt switches to the red `root㉿Robbins` / `#` theme if you manage to get root.
 
 ### **Zero Dependencies**
 
@@ -84,7 +87,11 @@ Code
       favicon-16x16.png
       favicon-32x32.png
       apple-touch-icon.png
+      og-image.png          (1200x630 link-preview image)
+      kali-cubism-16x9.webp (background, JPG kept as fallback)
     site.webmanifest
+    robots.txt
+    sitemap.xml
     
 
 ## 🚀 How It Works
@@ -101,7 +108,7 @@ Code
     
 -   Prompt creation
     
--   Input sanitization
+-   "Input sanitization"
     
 -   Command history rendering
     

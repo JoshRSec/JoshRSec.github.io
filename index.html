@@ -10,8 +10,58 @@
 <!--           If you're reading this, I think we'd get along           -->
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Joshua Robbins | Senior Security Analyst</title>
+<meta name="description" content="Joshua Robbins, Senior Security Analyst. CTFs, TryHackMe, security research and projects. Explore my portfolio through an interactive Kali Linux terminal."/>
+<meta name="author" content="Joshua Robbins"/>
+<meta name="theme-color" content="#21232C"/>
+<link rel="canonical" href="https://www.joshuarobbins.tech/"/>
+
+<!-- Open Graph / link previews -->
+<meta property="og:locale" content="en_GB"/>
+<meta property="og:type" content="profile"/>
+<meta property="og:site_name" content="Joshua Robbins"/>
+<meta property="og:title" content="Joshua Robbins | Senior Security Analyst"/>
+<meta property="og:description" content="Senior Security Analyst. CTFs, TryHackMe, security research and projects, explored through an interactive Kali Linux terminal."/>
+<meta property="og:url" content="https://www.joshuarobbins.tech/"/>
+<meta property="og:image" content="https://www.joshuarobbins.tech/images/og-image.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="Joshua Robbins' portfolio: a Kali Linux style terminal"/>
+<meta property="profile:first_name" content="Joshua"/>
+<meta property="profile:last_name" content="Robbins"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content="@Piv0tSec"/>
+<meta name="twitter:creator" content="@Piv0tSec"/>
+<meta name="twitter:title" content="Joshua Robbins | Senior Security Analyst"/>
+<meta name="twitter:description" content="Senior Security Analyst. CTFs, TryHackMe, security research and projects, explored through an interactive Kali Linux terminal."/>
+<meta name="twitter:image" content="https://www.joshuarobbins.tech/images/og-image.png"/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Joshua Robbins",
+  "alternateName": ["Josh Robbins", "Piv0t"],
+  "jobTitle": "Senior Security Analyst",
+  "description": "Senior Security Analyst with a BSc in Computer Science and a background in infrastructure engineering, passionate about CTFs and cyber security.",
+  "url": "https://www.joshuarobbins.tech/",
+  "knowsAbout": ["Cyber Security", "Security Operations", "Capture The Flag", "Infrastructure Engineering", "Computer Science"],
+  "sameAs": [
+    "https://www.linkedin.com/in/joshua-robbins-335152123/",
+    "https://github.com/JoshRSec",
+    "https://twitter.com/Piv0tSec",
+    "https://tryhackme.com/p/piv0t",
+    "https://www.credly.com/users/joshua-robbins.34758ae2/badges",
+    "https://blog.joshuarobbins.tech"
+  ]
+}
+</script>
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3LCNL3K7HG"></script>
 <script>
@@ -21,34 +71,23 @@
   gtag('config', 'G-3LCNL3K7HG');
 </script>
 
-<meta charset="UTF-8">
-<meta property="og:locale" content="en_GB"/>
-<meta property="og:type" content="website"/>
-<meta property="og:title" content="Joshua Robbins"/>
-<meta property="og:description" content="My interests, projects and notes relating to Computer Science and Cyber Security"/>
-<meta name="description" content="My interests, projects and notes relating to Computer Science and Cyber Security"/>
-<meta property="og:url" content="https://www.joshuarobbins.tech/"/>
-<meta property="og:site_name" content="Joshua Robbins"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
 <link href="styles/all.css" rel="stylesheet">
-<link rel="canonical" href="https://www.joshuarobbins.tech/" />
 <link rel="stylesheet" href="styles/main.css">
 
-<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+<link rel="icon" href="images/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
-
-<title>Joshua Robbins</title>
 </head>
 
 <body>
   <noscript>
     <div style="padding:20px; max-width:800px; margin:auto; color:white; font-family:'Fira Code', monospace;">
-      <h1>Joshua Robbins</h1>
-      <p>Welcome</p>
+      <h2>Welcome</h2>
 
       <h2>Available Commands</h2>
       <ul>
@@ -61,7 +100,7 @@
       </ul>
 
       <h2>whoami</h2>
-      <p>My name is Joshua Robbins, I currently work as a Security Analyst.</p>
+      <p>My name is Joshua Robbins, I currently work as a Senior Security Analyst.</p>
       <p>I am passionate about CyberSec, keeping up with new trends and completing CTFs.</p>
       <p>I graduated with a BSc in Computer Science and have experience as an infrastructure engineer.</p>
 
@@ -81,30 +120,39 @@
     </div>
   </noscript>
   <div class="page-wrapper">
-    <div class="container">
+    <header class="intro">
+      <h1>Joshua Robbins</h1>
+      <p>Senior Security Analyst &middot; CTF player &middot; type <code>whoami</code> to learn more</p>
+    </header>
+
+    <main class="container">
       <div class="menu">
         <div class="icon-flex">
           <div class="icon terminal-icon"></div>
         </div>
 
         <div class="buttons-flex">
-          <div class="button minimize"></div>
-          <div class="button maximize"></div>
-          <div class="button exit"></div>
+          <div class="button minimize" title="Minimise"></div>
+          <div class="button maximize" title="Maximise"></div>
+          <div class="button exit" title="Close"></div>
         </div>
 
         <div class="title">
-          <a href="https://github.com/JoshRSec" target="_blank">
-            <h1><i class='fab fa-github'></i> github.com/JoshRSec</h1>
+          <a href="https://github.com/JoshRSec" target="_blank" rel="noopener">
+            <span class="title-text"><i class='fab fa-github'></i> github.com/JoshRSec</span>
           </a>
         </div>
       </div>
 
       <div id="app"></div>
-    </div>
+    </main>
+
+    <button id="reopen" class="blog-button" hidden>
+      Terminal closed, click to reopen<span class="cursor">_</span>
+    </button>
 
     <div class="blog-button-container">
-      <a href="https://blog.joshuarobbins.tech" target="_blank" class="blog-button">
+      <a href="https://blog.joshuarobbins.tech" target="_blank" rel="noopener" class="blog-button">
         Visit My Blog<span class="cursor">_</span>
       </a>
     </div>

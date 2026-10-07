@@ -1,19 +1,35 @@
+/* Kali-Dark qterminal palette */
+:root{
+  --k-bg: #21232C;
+  --k-fg: rgb(238, 238, 238);
+  --k-grey: #9c9c9c;
+  --k-green: #5AD786;
+  --k-blue: #2579F2;
+  --k-cyan: #66C2CD;
+  --k-red: #F78F85;
+  --k-yellow: #E5C07B;
+  --k-magenta: #C678DD;
+}
 *{
   margin:0;
   padding:0;
   box-sizing: border-box;
   overflow-wrap: break-word;
 }
+[hidden]{
+  display: none !important;
+}
 ::-webkit-scrollbar-track
 {
     box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	
+
 	background-color: #555;
 }
 ::-webkit-scrollbar
 {
 	width: 12px;
+	height: 12px;
 	background-color: #555;
 }
 
@@ -25,27 +41,35 @@
 	background-color: rgb(129, 129, 129);
 }
 .white{
-  color:rgb(238, 238, 238);
+  color: var(--k-fg);
 }
 .blue{
   color:#9CEAF3;
 }
 a{
   text-decoration: none;
-  color: rgb(238, 238, 238);
+  color: var(--k-fg);
+}
+a:hover{
+  text-decoration: underline;
 }
 body{
   background-image: url("../images/kali-cubism-16x9.jpg");
+  background-image: image-set(url("../images/kali-cubism-16x9.webp") type("image/webp"), url("../images/kali-cubism-16x9.jpg") type("image/jpeg"));
+  background-color: var(--k-bg);
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover; /* Resize the background image to cover the entire container */
 
-  height: 100vh;
+  min-height: 100vh;
   font-family: 'Fira Code', monospace;
+  font-weight: 500;
   display:flex;
   align-items: center;
   justify-content: center;
 }
+
+/* ---------- Window ---------- */
 .container{
   display:flex;
   flex-direction: column;
@@ -58,6 +82,24 @@ body{
   margin:20px;
   cursor: text;
 }
+.container.closed{
+  display: none;
+}
+.container.minimized{
+  height: auto;
+}
+.container.minimized #app{
+  display: none;
+}
+.container.maximized{
+  position: fixed;
+  inset: 0;
+  max-width: none;
+  height: auto;
+  margin: 0;
+  border-radius: 0;
+  z-index: 10;
+}
 .menu{
   display:flex;
   align-items: center;
@@ -67,7 +109,8 @@ body{
   flex-direction: row;
   width: 100%;
   height: 24px;
-  background-color: #21232C;
+  flex-shrink: 0;
+  background-color: var(--k-bg);
   padding: 0 8px;
   cursor:default;
 }
@@ -84,8 +127,8 @@ body{
   cursor:pointer;
 }
 .menu .terminal-icon{
-  background-image: url("../images/terminal-icon.png"); 
-  background-position: center; 
+  background-image: url("../images/terminal-icon.png");
+  background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -104,34 +147,10 @@ div.title{
   flex:1;
   text-align:center;
 }
-span.text{
-  margin-left:16px;
-  color:white;
-}
-div.path{
-  color:#FFFFFF;
-  line-height: 100%
-}
-div.path span{
-  color:#2579F2;
-}
-div.path span.white{
-  color:#FFFFFF;
-}
-section.path-history{
-  color:#FFFFFF;
-  line-height: 116%
-}
-section.path-history span{
-  color:#2579F2;
-}
-section.path-history span.white{
-  color:#FFFFFF;
-}
-.menu h1{
+.menu .title-text{
   font-size:13px;
-  color:#9c9c9c;
-
+  font-weight: 700;
+  color: var(--k-grey);
 }
 .buttons-flex{
   position: absolute;
@@ -144,54 +163,190 @@ section.path-history span.white{
   display:flex;
   flex-direction: row;
 }
+
+/* ---------- Terminal body ---------- */
 #app{
   display:flex;
   flex-direction: column;
-  background-color:#21232C;
+  background-color: var(--k-bg);
   width:100%;
   height:100%;
   padding:8px;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 p{
   font-size:16px;
-  color:rgb(238, 238, 238);
-  padding:8px 0;
-}
-h2{
-  font-size:16px;
-  color:rgb(238, 238, 238);
-  display: inline;
-}
-h2.success{
-  color:#5AD786;
-}
-h2.error{
-  color:#F78F85;
+  color: var(--k-fg);
+  padding:2px 0;
+  line-height: 1.35;
 }
 p.code{
-  color:#66C2CD;
+  color: var(--k-cyan);
   margin-left:8px;
+  padding:4px 0;
 }
-p.response{
-  color:rgb(238, 238, 238);
+span.text{
+  margin-left:16px;
+  color:white;
 }
-input{
-  border:none;
-  background-color: unset;
-  color:rgb(238, 238, 238);
-  width: 80%;
-  font-size:16px;
-  font-family: 'Fira Code', monospace;
+p.dim{
+  color: var(--k-grey);
 }
-input:focus{
-  border:none;
-  outline: none;
-  box-shadow: none;
-  background-color: unset;
-  
+p.pre{
+  white-space: pre;
+  overflow-x: auto;
+  flex-shrink: 0;
 }
 
+/* Login banner, styled after Kali's "Message from Kali developers" */
+p.box{
+  padding: 0;
+  white-space: pre-wrap;
+}
+.box-code{
+  color: var(--k-cyan);
+}
+.box-desc{
+  color: var(--k-fg);
+}
+
+/* ---------- Prompt (Kali zsh theme) ---------- */
+.prompt{
+  font-size: 16px;
+  color: var(--k-fg);
+  line-height: 1.35;
+  padding-top: 6px;
+}
+.prompt-line{
+  position: relative;
+  white-space: pre-wrap;
+}
+.prompt .frame{
+  color: var(--k-green);
+}
+.prompt .user,
+.prompt .sym{
+  color: var(--k-blue);
+  font-weight: 700;
+}
+.prompt .cwd{
+  color: var(--k-fg);
+  font-weight: 700;
+}
+.prompt.root .frame{
+  color: var(--k-blue);
+}
+.prompt.root .user,
+.prompt.root .sym{
+  color: var(--k-red);
+}
+.cmd{
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+/* zsh-syntax-highlighting */
+.hl-ok{
+  color: var(--k-green);
+}
+.hl-bad{
+  color: var(--k-red);
+}
+
+/* Block cursor */
+.cursor-block{
+  background-color: var(--k-fg);
+  color: var(--k-bg);
+  animation: block-blink 1s steps(1) infinite;
+}
+.prompt.blurred .cursor-block{
+  background-color: transparent;
+  color: inherit;
+  outline: 1px solid var(--k-fg);
+  outline-offset: -1px;
+  animation: none;
+}
+@keyframes block-blink {
+  50% { background-color: transparent; color: var(--k-fg); }
+}
+
+/* Real input sits invisibly under the mirrored text */
+.prompt input{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: transparent;
+  caret-color: transparent;
+  font-size: 16px;
+  font-family: 'Fira Code', monospace;
+}
+
+.completions{
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 2ch;
+  color: var(--k-fg);
+}
+
+/* ---------- Command output ---------- */
+p.ls{
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 2ch;
+}
+.ls-dir{
+  color: var(--k-blue);
+  font-weight: 700;
+}
+
+.neofetch{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 8px 3ch;
+  padding: 6px 0;
+  flex-shrink: 0;
+}
+.nf-logo{
+  font-family: 'Fira Code', monospace;
+  font-size: 11px;
+  line-height: 1.2;
+  color: var(--k-blue);
+  font-weight: 700;
+  overflow-x: auto;
+  max-width: 100%;
+}
+.nf-info p{
+  font-size: 14px;
+  padding: 0;
+}
+.nf-key{
+  color: var(--k-blue);
+  font-weight: 700;
+}
+.nf-swatches span{
+  display: inline-block;
+  width: 3ch;
+  height: 1.2em;
+}
+.sw0{ background: #000000; }
+.sw1{ background: var(--k-red); }
+.sw2{ background: var(--k-green); }
+.sw3{ background: var(--k-yellow); }
+.sw4{ background: var(--k-blue); }
+.sw5{ background: var(--k-magenta); }
+.sw6{ background: var(--k-cyan); }
+.sw7{ background: var(--k-fg); }
+
+/* ---------- Blog / reopen buttons ---------- */
 .blog-button-container {
   text-align: center;
   margin-top: 2rem;
@@ -199,14 +354,18 @@ input:focus{
 
 .blog-button {
   display: inline-block;
+  position: relative;
+  z-index: 2;
   padding: 0.75rem 1.5rem;
   font-family: 'Fira Code', monospace;
   font-size: 1rem;
   color: #fff;
   background-color: #1e293b; /* slate-800 */
+  background-clip: padding-box;
   border: 2px solid #38bdf8; /* sky-400 */
   border-radius: 6px;
   text-decoration: none;
+  cursor: pointer;
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
@@ -214,19 +373,11 @@ input:focus{
   background-color: #0ea5e9;
   border-color: #0ea5e9;
   box-shadow: 0 0 8px #0ea5e9;
+  text-decoration: none;
 }
 
-.blog-button-container {
-  text-align: center;
-  margin-top: 2rem;
-}
-
-
-.blog-button {
-  background-color: #1e293b;
-  background-clip: padding-box;
-  position: relative;
-  z-index: 2;
+#reopen {
+  margin: 20px;
 }
 
 .cursor {
@@ -238,6 +389,26 @@ input:focus{
   0% { opacity: 1; }
   50% { opacity: 0; }
   100% { opacity: 1; }
+}
+
+/* ---------- Intro (crawlable name + role) ---------- */
+.intro{
+  text-align: center;
+  margin: 24px 20px 0;
+  color: var(--k-fg);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+}
+.intro h1{
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.intro p{
+  font-size: 0.9rem;
+  padding: 4px 0 0;
+}
+.intro code{
+  font-family: inherit;
+  color: var(--k-green);
 }
 
 .page-wrapper {
